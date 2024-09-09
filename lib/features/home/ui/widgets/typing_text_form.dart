@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gemeni_bot/features/home/logic/home_cubit.dart';
 
 class TypingTextForm extends StatefulWidget {
   const TypingTextForm({
@@ -11,10 +13,18 @@ class TypingTextForm extends StatefulWidget {
 }
 
 class _TypingTextFormState extends State<TypingTextForm> {
+  bool isTyping = false;
+
   @override
   Widget build(BuildContext context) {
     return Form(
       child: TextField(
+        onChanged: (value) {
+          setState(() {
+            isTyping = value.isNotEmpty;
+          });
+          context.read<HomeCubit>().changeTypingState(value.isNotEmpty);
+        },
         maxLines: null,
         decoration: InputDecoration(
           filled: true,
