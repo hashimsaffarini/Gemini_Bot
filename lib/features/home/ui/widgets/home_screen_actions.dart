@@ -40,12 +40,14 @@ class HomeScreenActions extends StatelessWidget {
               color: Colors.blue,
               borderRadius: BorderRadius.circular(25.r),
             ),
-            child: SvgPicture.asset(
-              'assets/svgs/send.svg',
-              fit: BoxFit.scaleDown,
-              colorFilter: const ColorFilter.mode(
-                Colors.white,
-                BlendMode.srcIn,
+            child: InkWell(
+              child: SvgPicture.asset(
+                'assets/svgs/send.svg',
+                fit: BoxFit.scaleDown,
+                colorFilter: const ColorFilter.mode(
+                  Colors.white,
+                  BlendMode.srcIn,
+                ),
               ),
             ),
           ),

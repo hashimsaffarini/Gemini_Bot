@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class TypingTextForm extends StatelessWidget {
+class TypingTextForm extends StatefulWidget {
   const TypingTextForm({
     super.key,
   });
 
+  @override
+  State<TypingTextForm> createState() => _TypingTextFormState();
+}
+
+class _TypingTextFormState extends State<TypingTextForm> {
   @override
   Widget build(BuildContext context) {
     return Form(
