@@ -7,13 +7,20 @@ class GeminiApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const ScreenUtilInit(
-      designSize: Size(375, 812),
+    return ScreenUtilInit(
+      designSize: const Size(375, 812),
       minTextAdapt: true,
       child: MaterialApp(
         title: 'Gemini App',
+        theme: ThemeData(
+          textSelectionTheme: const TextSelectionThemeData(
+            cursorColor: Colors.white,
+            selectionColor: Colors.grey,
+            selectionHandleColor: Colors.white,
+          ),
+        ),
         debugShowCheckedModeBanner: false,
-        home: HomeScreen(),
+        home: const HomeScreen(),
       ),
     );
   }

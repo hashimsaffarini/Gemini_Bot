@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gemeni_bot/features/home/ui/widgets/custom_app_bar.dart';
+import 'package:gemeni_bot/features/home/ui/widgets/home_screen_actions.dart';
+import 'package:gemeni_bot/features/home/ui/widgets/home_screen_body.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -22,12 +24,23 @@ class HomeScreen extends StatelessWidget {
             end: Alignment.bottomCenter,
           ),
         ),
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 18.w, vertical: 40.h),
-          child: const Column(
-            children: [
-              CustomAppBar(),
-            ],
+        child: SafeArea(
+          child: Padding(
+            padding: EdgeInsets.only(right: 18.w, left: 18.w),
+            child: const Column(
+              children: [
+                CustomAppBar(),
+                Expanded(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      HomeScreenBody(),
+                      HomeScreenActions(),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

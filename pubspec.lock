@@ -505,7 +505,7 @@ packages:
     source: hosted
     version: "1.0.1"
   path_provider:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: path_provider
       sha256: fec0d61223fba3154d87759e3cc27fe2c8dc498f6386c6d6fc80d1afdd1bf378
@@ -513,7 +513,7 @@ packages:
     source: hosted
     version: "2.1.4"
   path_provider_android:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: path_provider_android
       sha256: "6f01f8e37ec30b07bc424b4deabac37cacb1bc7e2e515ad74486039918a37eb7"

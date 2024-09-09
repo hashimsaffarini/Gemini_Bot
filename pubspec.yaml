@@ -42,6 +42,8 @@ dependencies:
   google_fonts: ^6.2.1
   json_annotation: ^4.9.0
   json_serializable: ^6.8.0
+  path_provider: ^2.1.4
+  path_provider_android: ^2.2.10
   pretty_dio_logger: ^1.4.0
   retrofit: ^4.4.1
   retrofit_generator: ^9.1.1
