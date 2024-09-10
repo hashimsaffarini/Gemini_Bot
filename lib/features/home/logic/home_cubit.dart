@@ -13,7 +13,6 @@ class HomeCubit extends Cubit<HomeState> {
   final formKey = GlobalKey<FormState>();
   List<MessageModel> messagesList = [];
   ScrollController scrollController = ScrollController();
-  final GlobalKey<AnimatedListState> listKey = GlobalKey<AnimatedListState>();
 
   void changeTypingState(bool value) {
     isTyping = value;
@@ -38,7 +37,6 @@ class HomeCubit extends Cubit<HomeState> {
       messagesList = messages;
       scrollToBottom();
       textEditingController.clear();
-      listKey.currentState?.insertItem(messages.length - 1);
 
       emit(MessageSent(messages));
     }
