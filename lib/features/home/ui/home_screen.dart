@@ -37,20 +37,8 @@ class HomeScreen extends StatelessWidget {
                   child: BlocBuilder<HomeCubit, HomeState>(
                     builder: (context, state) {
                       if (state is MessageSent) {
-                        return AnimatedOpacity(
-                          duration: const Duration(milliseconds: 300),
-                          opacity: context.read<HomeCubit>().isTyping ? 1 : 1,
-                          child: HomeScreenBodyWithMessages(
-                            messages: state.messages,
-                          ),
-                        );
-                      } else if (state is MessageSending) {
-                        return AnimatedOpacity(
-                          duration: const Duration(milliseconds: 300),
-                          opacity: context.read<HomeCubit>().isTyping ? 1 : 1,
-                          child: const HomeScreenBodyWithMessages(
-                            messages: [],
-                          ),
+                        return HomeScreenBodyWithMessages(
+                          messages: state.messages,
                         );
                       } else if (state is HomeTypingState) {
                         return AnimatedOpacity(
@@ -59,7 +47,11 @@ class HomeScreen extends StatelessWidget {
                           child: const HomeScreenBodyWithoutMessages(),
                         );
                       } else {
-                        return const HomeScreenBodyWithoutMessages();
+                        return AnimatedOpacity(
+                          duration: const Duration(milliseconds: 300),
+                          opacity: (context.read<HomeCubit>().isTyping) ? 0 : 1,
+                          child: const HomeScreenBodyWithoutMessages(),
+                        );
                       }
                     },
                   ),

@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:google_generative_ai/google_generative_ai.dart';
 
 class GeminiAPIService {

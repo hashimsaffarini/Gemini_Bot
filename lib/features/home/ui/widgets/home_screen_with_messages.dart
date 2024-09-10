@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gemeni_bot/features/home/data/message_model.dart';
 import 'package:gemeni_bot/features/home/logic/home_cubit.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreenBodyWithMessages extends StatelessWidget {
   final List<MessageModel> messages;
@@ -26,7 +27,7 @@ class HomeScreenBodyWithMessages extends StatelessWidget {
                 isUserMessage ? Alignment.centerRight : Alignment.centerLeft,
             child: ConstrainedBox(
               constraints: BoxConstraints(
-                maxWidth: 0.75.sw, // Limit the width of the message bubble
+                maxWidth: 0.75.sw,
               ),
               child: Container(
                 decoration: BoxDecoration(
@@ -47,7 +48,7 @@ class HomeScreenBodyWithMessages extends StatelessWidget {
                 padding: EdgeInsets.all(12.h),
                 child: Text(
                   message.message,
-                  style: TextStyle(
+                  style: GoogleFonts.poppins(
                     color: Colors.white,
                     fontSize: 16.sp,
                   ),
