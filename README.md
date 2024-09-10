@@ -15,7 +15,7 @@ Gemini Bot is a modern, AI-powered chatbot app built with Flutter. Featuring smo
 
 ## 📱 Demo
 
-<img src="https://github.com/hashimsaffarini/Gemini_Bot/blob/main/assets/images/vid.gif" alt="Gemini Bot Demo" width="400"/>
+<img src="https://github.com/hashimsaffarini/Gemini_Bot/blob/main/assets/images/vid.gif" alt="Gemini Bot Demo" width="700"/>
 
 ---
 
