@@ -1,16 +1,26 @@
-# gemeni_bot
+# 🤖 Gemini Bot - AI Chat App
 
-A new Flutter project.
+Gemini Bot is a modern, AI-powered chatbot app built with Flutter. Featuring smooth animations and a sleek UI, it allows users to engage in intelligent conversations with an AI bot. The app includes features such as clearing chat history and customizable settings.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 🚀 Features
 
-A few resources to get you started if this is your first Flutter project:
+- 💬 **AI Chatbot**: Ask anything, get intelligent responses.
+- 🧹 **Clear Chat**: Easily clear chat history with one tap.
+- 🎨 **Modern UI**: Clean, sleek design with smooth transitions.
+- ⚙️ **Customizable Settings**: Tailor the chatbot to your preferences.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 📱 Demo
+
+<img src="https://github.com/hashimsaffarini/Gemini_Bot/blob/main/assets/images/vid.gif" alt="Gemini Bot Demo" width="400"/>
+
+---
+
+## 🛠️ Installation
+
+1. **Clone the repo**:
+   ```bash
+   git clone https://github.com/hashimsaffarini/Gemini_Bot.git
