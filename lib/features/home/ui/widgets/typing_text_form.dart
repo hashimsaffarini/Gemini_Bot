@@ -18,12 +18,17 @@ class _TypingTextFormState extends State<TypingTextForm> {
   @override
   Widget build(BuildContext context) {
     return Form(
-      child: TextField(
+      key: context.read<HomeCubit>().formKey,
+      child: TextFormField(
+        controller: context.read<HomeCubit>().textEditingController,
         onChanged: (value) {
-          setState(() {
-            isTyping = value.isNotEmpty;
-          });
-          context.read<HomeCubit>().changeTypingState(value.isNotEmpty);
+          if (context.read<HomeCubit>().messagesList.isEmpty) {
+            setState(() {
+              isTyping = value.isNotEmpty;
+            });
+
+            context.read<HomeCubit>().changeTypingState(value.isNotEmpty);
+          }
         },
         maxLines: null,
         decoration: InputDecoration(

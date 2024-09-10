@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:gemeni_bot/features/home/logic/home_cubit.dart';
 import 'package:gemeni_bot/features/home/ui/widgets/typing_text_form.dart';
 
 class HomeScreenActions extends StatelessWidget {
@@ -41,6 +43,9 @@ class HomeScreenActions extends StatelessWidget {
               borderRadius: BorderRadius.circular(25.r),
             ),
             child: InkWell(
+              onTap: () {
+                context.read<HomeCubit>().sendMessage();
+              },
               child: SvgPicture.asset(
                 'assets/svgs/send.svg',
                 fit: BoxFit.scaleDown,

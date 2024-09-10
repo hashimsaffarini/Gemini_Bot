@@ -5,6 +5,7 @@ import 'package:gemeni_bot/features/home/logic/home_cubit.dart';
 import 'package:gemeni_bot/features/home/ui/widgets/custom_app_bar.dart';
 import 'package:gemeni_bot/features/home/ui/widgets/home_screen_actions.dart';
 import 'package:gemeni_bot/features/home/ui/widgets/home_screen_body.dart';
+import 'package:gemeni_bot/features/home/ui/widgets/home_screen_with_messages.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -33,22 +34,37 @@ class HomeScreen extends StatelessWidget {
               children: [
                 const CustomAppBar(),
                 Expanded(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      BlocBuilder<HomeCubit, HomeState>(
-                        builder: (context, state) {
-                          return AnimatedOpacity(
-                            duration: const Duration(milliseconds: 300),
-                            opacity: context.read<HomeCubit>().isTyping ? 0 : 1,
-                            child: const HomeScreenBody(),
-                          );
-                        },
-                      ),
-                      const HomeScreenActions(),
-                    ],
+                  child: BlocBuilder<HomeCubit, HomeState>(
+                    builder: (context, state) {
+                      if (state is MessageSent) {
+                        return AnimatedOpacity(
+                          duration: const Duration(milliseconds: 300),
+                          opacity: context.read<HomeCubit>().isTyping ? 1 : 1,
+                          child: HomeScreenBodyWithMessages(
+                            messages: state.messages,
+                          ),
+                        );
+                      } else if (state is MessageSending) {
+                        return AnimatedOpacity(
+                          duration: const Duration(milliseconds: 300),
+                          opacity: context.read<HomeCubit>().isTyping ? 1 : 1,
+                          child: const HomeScreenBodyWithMessages(
+                            messages: [],
+                          ),
+                        );
+                      } else if (state is HomeTypingState) {
+                        return AnimatedOpacity(
+                          duration: const Duration(milliseconds: 300),
+                          opacity: (context.read<HomeCubit>().isTyping) ? 0 : 1,
+                          child: const HomeScreenBodyWithoutMessages(),
+                        );
+                      } else {
+                        return const HomeScreenBodyWithoutMessages();
+                      }
+                    },
                   ),
                 ),
+                const HomeScreenActions(),
               ],
             ),
           ),

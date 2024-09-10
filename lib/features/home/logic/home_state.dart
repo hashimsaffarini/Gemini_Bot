@@ -9,3 +9,11 @@ final class HomeTypingState extends HomeState {
 
   HomeTypingState(this.isTyping);
 }
+
+final class MessageSending extends HomeState {}
+
+final class MessageSent extends HomeState {
+  final List<MessageModel> messages;
+
+  MessageSent(this.messages);
+}
