@@ -27,6 +27,11 @@ class HomeCubit extends Cubit<HomeState> {
     changeTypingState(false);
   }
 
+  void clearMessages() {
+    messagesList = [];
+    emit(HomeInitial());
+  }
+
   Future<void> sendMessage() async {
     if (formKey.currentState!.validate()) {
       emit(MessageSending());
@@ -63,6 +68,8 @@ class HomeCubit extends Cubit<HomeState> {
         messages.add(botMessage);
         messagesList = messages;
         scrollToBottom();
+        await Future.delayed(const Duration(seconds: 1));
+
         emit(MessageSent(List.from(messages)));
       } catch (e) {
         messages.remove(botLoadingMessage);
@@ -81,13 +88,11 @@ class HomeCubit extends Cubit<HomeState> {
 
   void scrollToBottom() {
     if (scrollController.hasClients) {
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        scrollController.animateTo(
-          scrollController.position.maxScrollExtent,
-          duration: const Duration(milliseconds: 300),
-          curve: Curves.easeOut,
-        );
-      });
+      scrollController.animateTo(
+        scrollController.position.maxScrollExtent,
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.easeOut,
+      );
     }
   }
 }
